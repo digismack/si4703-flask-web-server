@@ -1,0 +1,17 @@
+body { margin: 0; padding: 0; font-family: "Arial"; }
+
+#panel { background: #111; padding: 20px; color: #fff; overflow: hidden; }
+#channel-setting { float: left; }
+#volume-setting { float: right; }
+
+h2 { margin: 10px; padding: 10px; background: #222; color: #fff; border-radius: 5px; font-size: 1em; }
+
+#volume { width: 95%; overflow: hidden; position: relative; margin: 0 auto; }
+#volume > button { width: 47%; height: 30px; padding: 0; cursor: pointer; }
+#volume > button:first-child { float: left; }
+#volume > button:last-child { float: right; }
+
+#seek { width: 95%; overflow: hidden; position: relative; margin: 0 auto; }
+#seek > button { width: 47%; height: 30px; padding: 0; cursor: pointer; }
+#seek > button:first-child { float: left; }
+#seek > button:last-child { float: right; }

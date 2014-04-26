@@ -43,7 +43,8 @@ class si4703:
         si4703.write_registry(self)
         sleep(0.1)
       
-        si4703.CHANNEL.CHAN = 1003
+        initial_channel = float( 98.7 )
+        si4703.CHANNEL.CHAN = int(((float( initial_channel*100 ))-8750)/20)
         si4703.write_registry(self)
         sleep(0.1)
         si4703.CHANNEL.TUNE = 1
