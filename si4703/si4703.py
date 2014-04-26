@@ -467,6 +467,10 @@ class si4703:
             frequency = (((channel * spacing) + 8750) / 100.0)# These fall into the same if statement because the begining of the bands both start at 76.0 Mhz
         return frequency
 
+    def get_volume( self ):
+        si4703.update_registry(self)
+        return si4703.SYS_CONFIG_2.VOLUME
+
     def toggle_mute (self):
         '''
         Toggles the mute feature. The si4703 is muted by default once the device is enabled.
@@ -492,21 +496,23 @@ class si4703:
         si4703.SYS_CONFIG_2.VOLUME = volume ## Finally, let's save all that work
         si4703.write_registry(self)          ## And then write it in stone
 
-    def volume_up( self ):
+    def volume_up(self):
         '''
         Bump the volume up by one unit
         '''
+        si4703.update_registry(self)
         current_volume = si4703.SYS_CONFIG_2.VOLUME
         if ( current_volume < 15 ):
             si4703.SYS_CONFIG_2.VOLUME += 1
             si4703.write_registry(self)
 
-    def volume_down( self ):
+    def volume_down(self):
         '''
         Bump the volume down by one unit
         '''
+        si4703.update_registry(self)
         current_volume = si4703.SYS_CONFIG_2.VOLUME
-        if ( current_volume > 1):
+        if ( current_volume >= 1):
             si4703.SYS_CONFIG_2.VOLUME -= 1
             si4703.write_registry(self)
 
