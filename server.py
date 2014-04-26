@@ -1,12 +1,13 @@
-import si4703
+from si4703 import si4703
 
 from flask import Flask
 from flask import render_template, request, redirect, jsonify
 
 fm = si4703.si4703()
+fm.init()
 
 app = Flask( __name__ )
-#app.debug = True
+app.debug = True
 
 def get_radio_properties():
     volume = fm.SYS_CONFIG_2.VOLUME
