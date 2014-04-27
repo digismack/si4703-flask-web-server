@@ -1,6 +1,11 @@
+function setVolumeBars(int){
+    $('#volume-setting li').css('color','#666');
+    $('#volume-setting li:nth-child(-n+' + int + ')').css('color','#fff');
+}
+
 function updatePanel(data){
     $('#channel-setting').text(data['channel']);
-    $('#volume-setting').text(data['volume']);
+    setVolumeBars(data['volume']);
 }
 
 $(document).ready(function(){
@@ -24,9 +29,6 @@ $(document).ready(function(){
             url : '/volume_up',
             dataType : 'json',
             cache : false,
-            beforeSend: function(){
-                $('#volume-setting').text('-').css('color','#666');
-            }
         });
         volume_up.done(function(data){
             updatePanel(data);
@@ -43,9 +45,6 @@ $(document).ready(function(){
             url : '/volume_down',
             dataType : 'json',
             cache : false,
-            beforeSend: function(){
-                $('#volume-setting').text('-').css('color','#666');
-            }
         });
         volume_down.done(function(data){
             updatePanel(data);
@@ -63,7 +62,7 @@ $(document).ready(function(){
             dataType : 'json',
             cache : false,
             beforeSend: function(){
-                $('#channel-setting').text('-').css('color','#666');
+                $('#channel-setting').text('---').css('color','#666');
             }
         });
         seek_right.done(function(data){
@@ -83,7 +82,7 @@ $(document).ready(function(){
             dataType : 'json',
             cache : false,
             beforeSend: function(){
-                $('#channel-setting').text('-').css('color','#666');
+                $('#channel-setting').text('---').css('color','#666');
             }
         });
         seek_left.done(function(data){

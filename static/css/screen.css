@@ -1,8 +1,9 @@
 body { margin: 0; padding: 0; font-family: "Arial"; }
 
 #panel { background: #111; padding: 20px; color: #fff; overflow: hidden; }
-#channel-setting { float: left; }
-#volume-setting { float: right; }
+#channel-setting { display: block; text-align: center; font-size: 3em; }
+#volume-setting { list-style-type: none; width: 75px; margin: 0 auto; padding: 0; }
+#volume-setting li { float: left; color: #666; width: 5px; padding: 0; margin: 0; }
 
 h2 { color: #222; font-size: 1em; }
 
