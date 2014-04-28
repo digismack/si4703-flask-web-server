@@ -1,24 +1,44 @@
-body { margin: 0; padding: 0; font-family: "Arial"; }
+html { height: 100%; width: 100%; }
+body { margin: 0; padding: 0; font-family: "Arial";
+    background: rgb(69,72,77); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(69,72,77,1) 0%, rgba(0,0,0,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(69,72,77,1)), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#45484d', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
 
-#panel { background: #111; padding: 20px; color: #fff; overflow: hidden; }
-#channel-setting { display: block; text-align: center; font-size: 3em; }
+#panel { color: #fff; overflow: hidden; background: url('/static/images/wood.jpg'); background-repeat: no-repeat; background-size: 100%; }
+
+#channel-setting { display: block; text-align: center; font-size: 3em; background: rgba(0,0,0,0.5); padding: 20px; }
+#channel-setting strong { font-weight: normal; }
+#channel-setting em { font-size: initial; color: #aaa; display: block; }
+
+#volume-wrapper { background: url('/static/images/45_degrees_right.png') rgba(0,0,0,0.8); overflow: hidden; padding: 10px; border-bottom: 1px solid #333; border-top: 1px solid #111; }
+#volume-wrapper i { color: #666; font-size: .8em; display: block; text-align: center; clear: both; margin: 25px 0 0; }
 #volume-setting { list-style-type: none; width: 75px; margin: 0 auto; padding: 0; }
-#volume-setting li { float: left; color: #666; width: 5px; padding: 0; margin: 0; }
+#volume-setting li { float: left; color: #666; width: 5px; padding: 0; margin: 0; font-size: 1em; font-weight: 900; }
+#volume-setting li.active { color: #fff; }
 
-h2 { color: #222; font-size: 1em; }
-
-#volume { overflow: hidden; position: relative; background: #eee; padding: 20px; border-bottom: 1px solid #aaa; }
-#volume > button { width: 49%; padding: 10px; margin: 0; cursor: pointer; 
-    background: #333; color: #fff; border: 0; font-size: 2em;
-    border-radius: 10px;
+#volume > span, #seek > span {
+    background: rgb(226,226,226); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(226,226,226,1) 0%, rgba(219,219,219,1) 50%, rgba(209,209,209,1) 51%, rgba(254,254,254,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(226,226,226,1)), color-stop(50%,rgba(219,219,219,1)), color-stop(51%,rgba(209,209,209,1)), color-stop(100%,rgba(254,254,254,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(226,226,226,1) 0%,rgba(219,219,219,1) 50%,rgba(209,209,209,1) 51%,rgba(254,254,254,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(226,226,226,1) 0%,rgba(219,219,219,1) 50%,rgba(209,209,209,1) 51%,rgba(254,254,254,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(226,226,226,1) 0%,rgba(219,219,219,1) 50%,rgba(209,209,209,1) 51%,rgba(254,254,254,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(226,226,226,1) 0%,rgba(219,219,219,1) 50%,rgba(209,209,209,1) 51%,rgba(254,254,254,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe',GradientType=0 ); /* IE6-9 */
 }
-#volume > button:first-child { float: left; }
-#volume > button:last-child { float: right; }
 
-#seek { overflow: hidden; position: relative; background: #ddd; padding: 20px; border-bottom: 1px solid #aaa; }
-#seek > button { width: 49%; padding: 10px 0; margin: 0; cursor: pointer;
-    background: #333; color: #fff; border: 0; font-size: 2em;
-    border-radius: 10px;
-}
-#seek > button:first-child { float: left; }
-#seek > button:last-child { float: right; }
+#volume { overflow: hidden; position: relative; background: rgba(0,0,0,0.5); padding: 20px; border-bottom: 1px solid #333; }
+#volume > span { width: 49%; padding: 10px 0; margin: 0; cursor: pointer; border: 0; font-size: 1.5em; border-radius: 10px; display: block; color: #222; text-align: center; }
+#volume #volume-down { float: left; }
+#volume #volume-up { float: right; }
+
+#seek { overflow: hidden; position: relative; background: rgba(0,0,0,0.3); padding: 20px; border-bottom: 1px solid #444; }
+#seek > span { width: 49%; padding: 10px 0; margin: 0; cursor: pointer; border: 0; font-size: 1.5em; border-radius: 10px; display: block; color: #222; text-align: center; }
+#seek #seek-left { float: left; }
+#seek #seek-right { float: right; }

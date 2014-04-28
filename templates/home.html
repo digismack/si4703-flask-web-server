@@ -7,39 +7,44 @@
 <meta name="apple-mobile-web-app-title" content="Home Stereo">
 <link rel="apple-touch-icon" href="/static/images/icon.png">
 <link rel="stylesheet" type="text/css" href="/static/css/screen.css" />
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css" />
 <script type="text/javascript" src="/static/js/jquery-2.1.0.min.js"></script>
 <script type="text/javascript" src="/static/js/radio.js"></script>
 </head>
 <body>
     <div id="panel">
-        <span id="channel-setting"></span>
-        <ul id="volume-setting">
-            <li>|</li>
-            <li>|</li>
-            <li>|</li>
-            <li>|</li>
-            <li>|</li>
-            <li>|</li>
-            <li>|</li>
-            <li>|</li>
-            <li>|</li>
-            <li>|</li>
-            <li>|</li>
-            <li>|</li>
-            <li>|</li>
-            <li>|</li>
-            <li>|</li>
-        </ul>
+        <span id="channel-setting">
+            <strong></strong>
+            <em>MHz FM</em>
+        </span>
+        <div id="volume-wrapper">
+            <ul id="volume-setting">
+                <li>|</li>
+                <li>|</li>
+                <li>|</li>
+                <li>|</li>
+                <li>|</li>
+                <li>|</li>
+                <li>|</li>
+                <li>|</li>
+                <li>|</li>
+                <li>|</li>
+                <li>|</li>
+                <li>|</li>
+                <li>|</li>
+                <li>|</li>
+                <li>|</li>
+            </ul>
+            <i class="fa fa-volume-up"></i></span>
+        </div>
     </div>
     <div id="volume">
-        <h2>Volume</h2>
-        <button id="volume-down">-</button>
-        <button id="volume-up">+</button>
+        <span id="volume-down"><i class="fa fa-minus-square-o fa-fw"></i></span>
+        <span id="volume-up"><i class="fa fa-plus-square-o fa-fw"></i></span>
     </div>
     <div id="seek">
-        <h2>Station</h2>
-        <button id="seek-left">&laquo;</button>
-        <button id="seek-right">&raquo;</button>
+        <span id="seek-left"><i class="fa fa-angle-double-left"></i></span>
+        <span id="seek-right"><i class="fa fa-angle-double-right"></i></span>
     </div>
 </body>
 </html>

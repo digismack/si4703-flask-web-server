@@ -1,10 +1,15 @@
 function setVolumeBars(int){
-    $('#volume-setting li').css('color','#666');
-    $('#volume-setting li:nth-child(-n+' + int + ')').css('color','#fff');
+    $('#volume-setting li').removeClass('active');
+    $('#volume-setting li:nth-child(-n+' + int + ')').addClass('active');
+    if ( int > 0 ){
+        $('#volume-wrapper i').css('color','#fff');
+    } else {
+        $('#volume-wrapper i').css('color','#666');
+    }
 }
 
 function updatePanel(data){
-    $('#channel-setting').text(data['channel']);
+    $('#channel-setting strong').text(data['channel']);
     setVolumeBars(data['volume']);
 }
 
@@ -20,7 +25,7 @@ $(document).ready(function(){
     initial_info.done(function(data){
         updatePanel(data);
     });
-    
+
     $('#volume-up').on('click', function(){
         $button = $(this);
         $button.attr('disabled','disabled');
@@ -62,7 +67,7 @@ $(document).ready(function(){
             dataType : 'json',
             cache : false,
             beforeSend: function(){
-                $('#channel-setting').text('---').css('color','#666');
+                $('#channel-setting strong').text('---');
             }
         });
         seek_right.done(function(data){
@@ -75,14 +80,13 @@ $(document).ready(function(){
     $('#seek-left').on('click', function(){
         $button = $(this);
         $button.attr('disabled','disabled');
-        $('#channel-setting').css('color','#666');
         seek_left = $.ajax({
             type : 'GET',
             url : '/seek_left',
             dataType : 'json',
             cache : false,
             beforeSend: function(){
-                $('#channel-setting').text('---').css('color','#666');
+                $('#channel-setting strong').text('---');
             }
         });
         seek_left.done(function(data){
